@@ -11,15 +11,31 @@ import CoreData
 
 class TaskController {
     
+    let fetchedResultsController: NSFetchedResultsController<Task>
+    init() {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let isComplete = NSSortDescriptor(key: "isComplete", ascending: false)
+        let timeSort = NSSortDescriptor(key: "due", ascending: false)
+        fetchRequest.sortDescriptors = [isComplete, timeSort]
+        let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
+        
+        fetchedResultsController = resultsController
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("There was an error fetching from fetchController \(error) \\ \(error.localizedDescription)")
+        }
+    }
+    
     static var shared = TaskController()
-    var tasks: [Task] = []
+//    var tasks: [Task] = []
     
     
     //Create
     func add(taskWtihName name: String, notes: String?, due: Date?) {
         let _ = Task(name: name, notes: notes, due: due)
         saveToPersistentStore()
-        tasks = fetchTasks()
+//        tasks = fetchTasks()
         
     }
     
@@ -29,14 +45,14 @@ class TaskController {
         task.notes = notes
         task.due = due as Date?
         saveToPersistentStore()
-        tasks = fetchTasks()
+//        tasks = fetchTasks()
     }
     
     //Remove
     func remove(task: Task) {
         task.managedObjectContext?.delete(task)
         saveToPersistentStore()
-        tasks = fetchTasks()
+//        tasks = fetchTasks()
     }
     
     func toggleIsCompleteFor(task: Task) {
@@ -56,5 +72,7 @@ class TaskController {
         let request: NSFetchRequest<Task> = Task.fetchRequest()
         return (try? CoreDataStack.context.fetch(request)) ?? []
     }
+    
+    
     
 }

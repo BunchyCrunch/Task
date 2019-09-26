@@ -22,28 +22,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" spacing="258" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-W3-Ybp">
-                                            <rect key="frame" x="20" y="11" width="374" height="22"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAV-c0-ddL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOf-fN-CQ2">
-                                                    <rect key="frame" x="300" y="0.0" width="74" height="22"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="uOf-fN-CQ2" secondAttribute="height" multiplier="37:11" id="xtg-L3-8NN"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="square" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="buttonTapped:" destination="zu7-FN-JQe" eventType="touchUpInside" id="pBT-xB-LgN"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAV-c0-ddL">
+                                            <rect key="frame" x="28" y="11" width="42" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOf-fN-CQ2">
+                                            <rect key="frame" x="360" y="11" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uOf-fN-CQ2" secondAttribute="height" multiplier="1:1" id="tAU-8t-I4P"/>
+                                            </constraints>
+                                            <state key="normal" image="square" catalog="system"/>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="zu7-FN-JQe" eventType="touchUpInside" id="pBT-xB-LgN"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uOf-fN-CQ2" secondAttribute="trailing" constant="12" id="JKb-Jo-lX3"/>
+                                        <constraint firstItem="uOf-fN-CQ2" firstAttribute="centerY" secondItem="cTY-2G-IaN" secondAttribute="centerY" id="bJr-Pr-q9q"/>
+                                        <constraint firstItem="cAV-c0-ddL" firstAttribute="leading" secondItem="cTY-2G-IaN" secondAttribute="leadingMargin" constant="8" id="kuD-0F-71Y"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="completeButton" destination="uOf-fN-CQ2" id="SkQ-tz-i0q"/>
@@ -60,7 +60,7 @@
                     <navigationItem key="navigationItem" id="VJW-KZ-Te9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="VyG-Wt-qrH">
                             <connections>
-                                <segue destination="ol9-dN-Ops" kind="show" identifier="toAddVC" id="4zZ-5N-W6S"/>
+                                <segue destination="ol9-dN-Ops" kind="show" identifier="" id="4zZ-5N-W6S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -132,25 +132,13 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="nX7-1z-hFg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                                            <gestureRecognizers/>
-                                                            <connections>
-                                                                <action selector="datePickerValueChanged:" destination="ol9-dN-Ops" eventType="valueChanged" id="S9E-Zr-Eeu"/>
-                                                                <outletCollection property="gestureRecognizers" destination="oD1-hE-Oee" appends="YES" id="ndi-TD-oKZ"/>
-                                                            </connections>
-                                                        </datePicker>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="d8V-iT-HVJ" secondAttribute="trailing" constant="4" id="3TP-bo-aS9"/>
                                                         <constraint firstItem="d8V-iT-HVJ" firstAttribute="top" secondItem="fzd-HN-PZv" secondAttribute="top" constant="4" id="6Vc-DT-GPg"/>
-                                                        <constraint firstAttribute="bottom" secondItem="nX7-1z-hFg" secondAttribute="bottom" id="Cqg-Lu-a3D"/>
-                                                        <constraint firstItem="nX7-1z-hFg" firstAttribute="top" secondItem="fzd-HN-PZv" secondAttribute="top" id="kij-ID-Faj"/>
-                                                        <constraint firstItem="nX7-1z-hFg" firstAttribute="leading" secondItem="fzd-HN-PZv" secondAttribute="leading" id="mc6-q4-fU1"/>
                                                         <constraint firstItem="d8V-iT-HVJ" firstAttribute="leading" secondItem="fzd-HN-PZv" secondAttribute="leading" constant="4" id="qHC-8K-8tG"/>
                                                         <constraint firstAttribute="bottom" secondItem="d8V-iT-HVJ" secondAttribute="bottom" constant="4" id="tE1-D0-Not"/>
-                                                        <constraint firstAttribute="trailing" secondItem="nX7-1z-hFg" secondAttribute="trailing" id="tgI-Wm-Vja"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -224,6 +212,15 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtX-bM-yXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" id="nX7-1z-hFg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="171"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <action selector="datePickerValueChanged:" destination="ol9-dN-Ops" eventType="valueChanged" id="S9E-Zr-Eeu"/>
+                        <outletCollection property="gestureRecognizers" destination="oD1-hE-Oee" appends="YES" id="ndi-TD-oKZ"/>
+                    </connections>
+                </datePicker>
                 <tapGestureRecognizer id="oD1-hE-Oee">
                     <connections>
                         <action selector="userTappedView:" destination="ol9-dN-Ops" id="ECW-nv-yHw"/>

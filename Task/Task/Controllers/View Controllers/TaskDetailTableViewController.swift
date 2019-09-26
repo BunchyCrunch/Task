@@ -12,6 +12,7 @@ class TaskDetailTableViewController: UITableViewController {
 
     var task: Task?{
         didSet {
+            loadViewIfNeeded()
             updateViews()
         }
     }
@@ -59,8 +60,8 @@ class TaskDetailTableViewController: UITableViewController {
     }
     
     private func updateViews() {
-        guard let task = task, isViewLoaded else { return }
-        let title = task.name
+        guard let task = task, isViewLoaded  else { return }
+        title = task.name
         nameTextField.text = task.name
         dueDateTextField.text = task.due?.stringValue()
         notesTextView.text = task.notes

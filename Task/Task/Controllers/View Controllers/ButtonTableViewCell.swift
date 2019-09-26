@@ -39,4 +39,5 @@ extension ButtonTableViewCell {
 
 protocol ButtonTableViewCellDelegate {
     func buttonCellButtonTapped(_ sender: ButtonTableViewCell)
+//    TaskController.shared.toggleIsCompleteFor(task: task)
 }
